@@ -1,6 +1,10 @@
 import * as actionTypes from "../actions/actionTypes";
 
-const initialState = { counter: 0, dataFromWeb: null, error: "" };
+const initialState = {
+  counter: 0,
+  dataFromWeb: { title: "No data yet" },
+  error: "",
+};
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {

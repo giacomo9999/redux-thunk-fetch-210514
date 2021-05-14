@@ -73,7 +73,7 @@ p {
 }
 
 .container-outer {
-  width: 30%;
+  width: 50%;
   padding: 10px;
   margin: 20px auto 10px;
   /* background color 5 */
@@ -139,7 +139,7 @@ td {
 /* Button (General Use) */
 
 button {
-  background-color: #5c6a79;
+  background-color: #2C3A49;
   color: white;
   padding: 1px 10px;
   text-align: center;

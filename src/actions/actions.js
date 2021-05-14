@@ -8,9 +8,10 @@ export const decrementCounter = (data) => {
   return { type: actionTypes.DECREMENT_COUNTER, payload: data.value };
 };
 
-export const fetchData = () => {
+export const fetchData = (idObj) => {
+  console.log("fetchData: idObj:", idObj.postId);
   return (dispatch) => {
-    return fetch("https://jsonplaceholder.typicode.com/todos/1")
+    return fetch(`https://jsonplaceholder.typicode.com/todos/${idObj.postId}`)
       .then((res) => res.json())
       .then((json) => {
         dispatch({ type: actionTypes.FETCH_DATA, fetchedData: json });
