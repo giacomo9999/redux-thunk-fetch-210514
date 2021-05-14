@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "./actions/actions";
 
@@ -5,13 +6,15 @@ const App = () => {
   const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(actions.fetchData());
+  }, []);
+
   const handleIncrementCounter = () => {
-    console.log("handleIncrementCounter here...");
     dispatch(actions.incrementCounter({ value: 1 }));
   };
 
   const handleDecrementCounter = () => {
-    console.log("handleDecrementCounter here...");
     dispatch(actions.decrementCounter({ value: 1 }));
   };
 
