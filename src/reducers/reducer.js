@@ -13,7 +13,10 @@ const appReducer = (state = initialState, action) => {
     case actionTypes.DECREMENT_COUNTER:
       return { ...state, counter: state.counter - action.payload };
     case actionTypes.FETCH_DATA:
-      return { ...state, dataFromWeb: action.fetchedData };
+      return {
+        ...state,
+        dataFromWeb: action.fetchedData,
+      };
     case actionTypes.DATA_FETCH_ERROR:
       return { ...state, error: action.msg };
     default:

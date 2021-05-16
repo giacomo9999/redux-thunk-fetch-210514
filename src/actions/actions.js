@@ -9,18 +9,20 @@ export const decrementCounter = (data) => {
 };
 
 export const fetchData = (idObj) => {
-  console.log("fetchData: idObj:", idObj.postId);
   return (dispatch) => {
     return fetch(`https://jsonplaceholder.typicode.com/todos/${idObj.postId}`)
       .then((res) => res.json())
       .then((json) => {
+        if (!json.title) {
+          json.title = "No entry at that index.";
+        }
         dispatch({ type: actionTypes.FETCH_DATA, fetchedData: json });
       })
-      .catch((err) =>
+      .catch((err) => {
         dispatch({
           type: actionTypes.DATA_FETCH_ERROR,
           msg: "Unable to fetch data",
-        })
-      );
+        });
+      });
   };
 };
